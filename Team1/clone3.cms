@@ -1,0 +1,210 @@
+﻿#name("Clone3")
+getscreen
+#autorun
+$tk = TFREAD("taikhoan\\taikhoan.txt",4)
+$wnd1 = wndfind($tk)
+$x = TFREAD("taikhoan\\toado.txt",7)
+$y = TFREAD("taikhoan\\toado.txt",8)
+$d=150
+$r=100
+WNDSETINFO($wnd1,$x,$y,$d,$r) 
+
+$reg = TFREAD("ht\\checkrg.txt",1)
+
+
+hset($wnd1,1)
+waitms(30)
+LCLICK(1,1)
+
+
+getscreen
+
+if_pixel_in(132,83,132,83,9012)
+ print( "thoat phong ")
+LCLICK(130,57)  // 1584451
+
+    waitms(1000)
+end_if
+
+
+
+if_pixel_in(58,61,58,61,16709421) // nhan moi
+ print( "nhan loi moi ")
+LCLICK(55,38)  // 3163177
+  waitms(2000)
+end_if
+
+ if_pixel_in(132,83,132,83,1914672)// chuan bi
+print( "chuan bi ")
+LCLICK(128,49)  // 1460119
+
+  
+$Lmh = 0
+$Turn = 0
+$loilatthe = 0
+$vitri = 0
+$loiss = 0
+
+ waitms(1000)
+end_if
+
+
+
+//-------Nhan tun------
+
+getscreen 
+
+if_pixel_in(74,47,74,47,14284287)
+ print("pass")
+keypress(#P)
+ waitms(2000)
+end_if
+
+
+
+
+
+
+//-----------------------LẬT THẺ ACC PHỤ (CHẠY TRỰC TIẾP)-----------------
+$bat_dau = 1    // Lá bài bắt đầu
+$so_the = 21    // Tổng số thẻ muốn lật
+
+GETSCREEN
+IF_PIXEL_IN(130,37,130,37,5557239)
+   PRINT("lat the acc phu") 
+   $mknlt = $mknlt + 1
+   WAITMS(8000)  
+   
+   $k = $bat_dau - 1
+   $limit = $k + $so_the
+   
+   WHILE($k < $limit)
+      $so_hang = 3   // Mặc định 3 hàng
+      $tong_cot = 7  // Mặc định 7 cột
+      
+      // Tính thứ tự lật DỌC (TỪ PHẢI QUA TRÁI)
+      $hang = $k - (INT($k / $so_hang) * $so_hang) 
+      $cot = ($tong_cot - 1) - INT($k / $so_hang)
+      
+      // Tính tọa độ X, Y acc phụ
+      $posX = INT(($cot * 18) + 13)
+      $posY = INT(($hang * 20) + 13)        
+      
+      LCLICK($posX, $posY)
+      WAITMS(300)
+      $k = $k + 1
+   END_CYC  
+
+   $Lmh = 0
+END_IF
+
+
+
+//tat thong bao chuc phuc
+if_pixel_in(56,67,56,67,29936)
+Keypress(#esc)
+print("Tat chuc phuc")
+waitms(1000)
+end_if	
+
+  //tat thong bao vip
+if_pixel_in(69,82,69,82,140998)
+LCLICK(93,6)  // 13875099
+print("Tat vip")
+waitms(1000)
+end_if	
+
+  //tat thong goi y
+if_pixel_in(280,128,280,128,8119)
+LCLICK(269,98)  // 11993087
+print("Tat goi y")
+waitms(1000)
+end_if	
+
+
+  //tat gui thu
+if_pixel_in(69,36,69,36,13629183)
+print("Tat gui thu")
+Keypress(#esc)
+waitms(1000)
+Keypress(#enter)
+waitms(1000)
+Keypress(#esc)
+end_if
+
+  //tat tb pho ban thu phi
+if_pixel_in(79,69,79,69,39419)
+Keypress(#esc)
+print("Tat tb pb thu phi")
+waitms(1000)
+end_if	
+
+//-----------Auo relog----------------
+
+   //loi mat ket noi
+if(pxl(74,67) = 11073279)
+$loimkn = $loimkn + 1
+print("loi mat ket noi " $loimkn)
+waitms(1000)   
+if($loimkn  >= 5)
+   POSTMESSAGE($wnd1,0x0010,0,0)
+   wait(3)
+    $loimkn = 0
+print("loi mat ket noi")
+end_if
+end_if	
+
+
+
+
+
+//-------------------relog---------------------------------
+
+
+THREAD(relog, 1)
+$Lmh = $Lmh + 1    
+//LOGWRITE("time relog: ", $Lmh)
+waitms(1000)  
+END_THREAD
+
+
+//-----------Auo relog----------------
+
+//thoi gian relog bao nhieu phut
+$time = TFREAD("ht\\time.txt",1)
+$time2 = $time*60
+
+if($Lmh >= $time2)
+   POSTMESSAGE($wnd1,0x0010,0,0)
+   print("loi mkn sau ... phut" )
+																		
+$Lmh = 0
+   wait(3)
+   end_if
+
+
+   //loi lat the
+if(pxl(45,35) = 25067)
+$loilatthe =  $loilatthe + 1
+ //print("loi lat the pb " $loilatthe)
+waitms(1000)   
+if($loilatthe >= 20)
+   POSTMESSAGE($wnd1,0x0010,0,0)
+   wait(3)
+    $loilatthe = 0
+print("loi lat the pb")
+end_if
+end_if
+
+   //loi ket hop tran
+if(pxl(78,61) = 7328481)
+$loiss =  $loiss + 1
+//print("loi ket hop tran " $loiss)
+waitms(1000)   
+if($loiss >= 10)
+   POSTMESSAGE($wnd1,0x0010,0,0)
+   wait(3)
+    $loiss = 0
+print("loi ket hop tran")
+end_if
+end_if
