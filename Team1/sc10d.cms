@@ -9,7 +9,7 @@ moiban()
 
 batdau("")
 
-chonpb(1,15,1,1)
+chonpb(1,10,1,1)
 
 
 latthe(1,21)
