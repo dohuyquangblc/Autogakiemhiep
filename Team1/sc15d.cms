@@ -34,7 +34,7 @@ waitms(500)
 #includer("ht\\buff.txt")
 
       keydown(68)
-      waitms(2300)
+      waitms(2600)
       keyup(68)
 	  
 waitms(2000)
