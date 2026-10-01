@@ -1,6 +1,5 @@
 ﻿#name("war0") 
 #autorun    
-//#includer("sub.xml") 
 Getscreen
 $tk = TFREAD("taikhoan\\taikhoan.txt",1)
 $wnd1 = wndfind($tk)
