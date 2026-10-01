@@ -1,0 +1,54 @@
+﻿#name("sc1ah") 
+#autorun    
+#includer("sub.xml") 
+
+team(1,1,2)
+
+
+moiban()
+
+batdau("")
+
+chonpb(1,1,1,1)
+
+
+latthe(1,21)
+
+
+//dame()
+
+
+
+
+if(pxl(49,65) = 13433343)
+waitms(500)
+LCLICK(395,26)  // 15984863
+waitms(5000)
+LCLICK(404,22)  // 6706771
+waitms(2000)
+
+end_if
+
+
+
+if_pixel_in(234,37,234,37,255) 
+logwrite("bat auto")
+LCLICK(243,8)  // 13941150 // bat auto dame
+waitms(500)
+end_if 
+
+if_pixel_in(478,261,478,261,1981681)
+logwrite("gom buff")
+LCLICK(471,230) // thu buff
+waitms(500)
+end_if 
+
+Getscreen 
+if_pixel_in(189,135,189,135,15793662)// turn cho den luot
+logwrite("buffdame")
+waitms(500)
+#includer("ht\\buff.txt")
+	  
+waitms(2000)
+
+end_if 
