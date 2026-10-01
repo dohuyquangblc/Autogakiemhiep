@@ -1,6 +1,5 @@
-﻿#name("war ad") 
+﻿#name("war0") 
 #autorun    
-//#includer("sub.xml") 
 Getscreen
 $tk = TFREAD("taikhoan\\taikhoan.txt",1)
 $wnd1 = wndfind($tk)
@@ -19,10 +18,11 @@ waitms(10)
 LCLICK(1,1)
 
 
+
 getscreen 
-if_pixel_in(169,63,169,63,15518975)  
+if(pxl(369,103) = 15266276)
 logwrite("tat thong bao")	
-LCLICK(391,82)  // 888591
+LCLICK(362,76)  // 5323556
 waitms(800)
 end_if  
 
@@ -33,14 +33,17 @@ waitms(800)
 end_if 
   
 
-if_pixel_in(34,236,34,236,2115952)
-logwrite("vao phong game")
-LCLICK(290,96)  // 2056050
-waitms(1000)
-end_if   
+   Getscreen
+   if_pixel_in(28,241,28,241,11991550)
+      logwrite("vao phong game")
+LCLICK(241,142)  // 5538238
+      waitms(1000)
+   end_if    
 
 
-if_pixel_in(150,41,150,41,16383743)  
+
+
+if(pxl(356,272) = 9169151)
 
 print("Dang go aim...")
          waitms(2000)        
@@ -58,9 +61,11 @@ waitms(1000)
 end_if  
 
 
-if_pixel_in(454,296,454,296,15203583)
+
+
+if(pxl(450,296) = 502004)
 logwrite("batdau")
-LCLICK(459,250)  // 5140868
+LCLICK(455,253)  // 5610689
 waitms(1000)
 $turn = 0
 end_if
@@ -72,41 +77,24 @@ LCLICK(243,8)  // 13941150 // bat auto dame
 waitms(500)
 end_if 
 
-if_pixel_in(478,265,478,265,1856766) 
-logwrite("gom buff")
-LCLICK(470,233) // thu buff
+if(pxl(478,180) = 2820549)
+logwrite("mo buff")
+LCLICK(470,148)  /
 waitms(500)
 end_if 
 
 GETSCREEN
 
-IF_PIXEL_IN(176,145,176,145,16121340)
-   IF($turn >= 3)
-      LOGWRITE("tu sat")
-keydown(186)
-waitms(500)
-keydown(186)
-waitms(500)
-keydown(186)
-waitms(200)
-keydown(186)
-waitms(500)  
-      
- 
-   ELSE
+if_pixel_in(189,135,189,135,15793662)
       LOGWRITE("nhan turn")
       WAITMS(500)
       #include "ht\buff.txt"
-      WAITMS(8000)
-      
-      $turn = $turn + 1 // Tăng lượt nếu chưa đủ 3 turn
-   END_IF
-   WAITMS(1000) // Khoảng chờ tránh bị bấm đè liên tục
+      WAITMS(2000)
 END_IF   
 
 
   //---------------win---------------------
-if_pixel_in(476,63,476,63,5757427)
+   if_pixel_in(453,67,453,67,7722495)
  $win = $win + 1
 $Lmh = 0
 
@@ -115,7 +103,7 @@ end_if
 
 
 //---------------Lose---------------------
-if_pixel_in(476,63,476,63,526344)
+if_pixel_in(453,67,453,67,16316664)
  $lose = $lose + 1
 $Lmh = 0
 
