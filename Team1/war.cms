@@ -1,0 +1,124 @@
+﻿#name("war0") 
+#autorun    
+//#includer("sub.xml") 
+Getscreen
+$tk = TFREAD("taikhoan\\taikhoan.txt",1)
+$wnd1 = wndfind($tk)
+$x = TFREAD("taikhoan\\toado.txt",1)
+$y = TFREAD("taikhoan\\toado.txt",2)
+$d=500
+$r=350
+WNDSETINFO($wnd1,$x,$y,$d,$r) 
+$vk = TFREAD("ht\\gocvk.txt",1)
+$reg = TFREAD("ht\\checkrg.txt",1)
+$Guild = TFREAD("ht\\Guild.txt",1)
+$nhatky = STRCONCAT($tk," Win:  ", $Win , " lose:  ", $lose)
+hsettext($wnd1,$nhatky)
+hset($wnd1,1)
+waitms(10)
+LCLICK(1,1)
+
+
+
+getscreen 
+if(pxl(369,103) = 15266276)
+logwrite("tat thong bao")	
+LCLICK(362,76)  // 5323556
+waitms(800)
+end_if  
+
+if_pixel_in(371,218,371,218,12578559)  
+logwrite("tat goi y")	
+LCLICK(458,190)  // 14737618
+waitms(800)
+end_if 
+  
+
+   Getscreen
+   if_pixel_in(28,241,28,241,11991550)
+      logwrite("vao phong game")
+LCLICK(241,142)  // 5538238
+      waitms(1000)
+   end_if    
+
+
+
+
+if(pxl(356,272) = 9169151)
+
+print("Dang go aim...")
+         waitms(2000)        
+         keypress(13) // Enter mở chat
+         waitms(300)
+         
+keystring("aim60_5")
+
+         waitms(300)
+         keypress(13) // Enter gửi
+         waitms(800)
+ logwrite("tao phong")	        
+LCLICK(337,265)  // 528414
+waitms(1000)
+end_if  
+
+
+
+
+if(pxl(450,296) = 502004)
+logwrite("batdau")
+LCLICK(455,253)  // 5610689
+waitms(1000)
+$turn = 0
+end_if
+
+
+if_pixel_in(234,37,234,37,255) 
+logwrite("bat auto")
+LCLICK(243,8)  // 13941150 // bat auto dame
+waitms(500)
+end_if 
+
+if(pxl(478,180) = 2820549)
+logwrite("mo buff")
+LCLICK(470,148)  /
+waitms(500)
+end_if 
+
+GETSCREEN
+
+if_pixel_in(189,135,189,135,15793662)
+      LOGWRITE("nhan turn")
+      WAITMS(500)
+      #include "ht\buff.txt"
+      WAITMS(2000)
+END_IF   
+
+
+  //---------------win---------------------
+   if_pixel_in(453,67,453,67,7722495)
+ $win = $win + 1
+$Lmh = 0
+
+waitms(6000)
+end_if
+
+
+//---------------Lose---------------------
+if_pixel_in(453,67,453,67,16316664)
+ $lose = $lose + 1
+$Lmh = 0
+
+waitms(6000)
+end_if
+
+
+
+
+
+
+
+
+	   
+	   
+
+	   
