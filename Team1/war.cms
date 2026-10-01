@@ -45,16 +45,7 @@ LCLICK(241,142)  // 5538238
 
 if(pxl(356,272) = 9169151)
 
-print("Dang go aim...")
-         waitms(2000)        
-         keypress(13) // Enter mở chat
-         waitms(300)
-         
-keystring("aim60_5")
 
-         waitms(300)
-         keypress(13) // Enter gửi
-         waitms(800)
  logwrite("tao phong")	        
 LCLICK(337,265)  // 528414
 waitms(1000)
@@ -64,11 +55,26 @@ end_if
 
 
 if(pxl(450,296) = 502004)
-logwrite("batdau")
-LCLICK(455,253)  // 5610689
-waitms(1000)
-$turn = 0
-end_if
+    IF($da_go == 0)
+        print("Dang go aim...")
+        waitms(2000)        
+        keypress(13) // Enter mở chat
+        waitms(300)
+        
+        keystring("aim60_5")
+
+        waitms(300)
+        keypress(13) // Enter gửi
+        waitms(800)
+        
+        $da_go = $da_go + 1
+    ELSE     
+        logwrite("batdau")
+        LCLICK(455,253)  // 5610689
+        waitms(1000)
+        $turn = 0
+    END_IF
+END_IF
 
 
 if_pixel_in(234,37,234,37,255) 
