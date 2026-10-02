@@ -1,32 +1,48 @@
-﻿#name("sc1ah") 
+﻿#name("boss rong tg") 
 #autorun    
 #includer("sub.xml") 
 
 team(1,1,2)
 
 
-moiban()
 
-batdau("")
+   Getscreen   
+if(pxl(28,243) = 11991550)
+logwrite("click vao boss tg")
+LCLICK(357,33)  // 13737071
+waitms(3000)
+LCLICK(284,70)  // 5729169
+waitms(2000)
+end_if 
 
-chonpb(1,1,1,1)
+   Getscreen   
+if(pxl(67,72) = 3196911)
+logwrite("vao trong boss")
+waitms(1000)
+LCLICK(433,282)  // 15969
+waitms(2000)
+end_if 
 
 
-latthe(1,21)
-
-
-//dame()
+ 
+   Getscreen   
+if(pxl(10,249) = 2126259)
+logwrite("ra phong game")
+LCLICK(469,301)  // 5531759
+waitms(1000)
+end_if 
 
 
 
 
 if(pxl(49,65) = 13433343)
+logwrite("click vo boss")
 waitms(500)
 LCLICK(395,26)  // 15984863
 waitms(5000)
 LCLICK(404,22)  // 6706771
 waitms(2000)
-
+$Lmh = 0
 end_if
 
 
