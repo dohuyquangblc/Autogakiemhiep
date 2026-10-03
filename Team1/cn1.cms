@@ -35,7 +35,7 @@ end_if
 
 
 
-if(pxl(484,46) = 3834367)
+if(pxl(49,65) = 13433343)
 logwrite("click vo boss")
 waitms(500)
 LCLICK(395,26)  // 15984863
@@ -62,8 +62,9 @@ end_if
 Getscreen 
 if_pixel_in(189,135,189,135,15793662)// turn cho den luot
 logwrite("buffdame")
-waitms(100)
-#includer("ht\\buff.txt")	  
-waitms(1000)
+waitms(500)
+#includer("ht\\buff.txt")
+	  
+waitms(2000)
 
 end_if 
