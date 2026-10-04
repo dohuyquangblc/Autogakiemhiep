@@ -17,6 +17,46 @@ hset($wnd1,1)
 waitms(10)
 LCLICK(1,1)
 
+//----------------------relog 500x350-------------------------------
+//-----------Auo relog----------------
+
+
+THREAD(relog, 1)
+$Lmh = $Lmh + 1    
+//LOGWRITE("time relog: ", $Lmh)
+waitms(1000)  
+END_THREAD
+
+
+//thoi gian relog bao nhieu phut
+$time = TFREAD("ht\\time.txt",1)
+$time2 = $time*60
+
+if($Lmh >= $time2)
+   POSTMESSAGE($wnd1,0x0010,0,0)
+   print("loi mkn sau ... phut" )
+																		
+$Lmh = 0
+$re=$re+1
+   wait(3)
+   end_if
+   
+ //-----------Auo relog----------------
+
+   //loi mat ket noi
+if_pixel_in(178,151,178,151,10538208)
+$loimkn = $loimkn + 1
+print("loi mat ket noi " $loimkn)
+waitms(1000)   
+if($loimkn  >= 10)
+   POSTMESSAGE($wnd1,0x0010,0,0)
+   wait(3)
+    $loimkn = 0
+print("loi mat ket noi")
+$re=$re+1
+end_if
+end_if	  
+
 
 
 getscreen 
@@ -44,17 +84,6 @@ LCLICK(241,142)  // 5538238
 
 
 if(pxl(356,272) = 9169151)
-
-print("Dang go aim...")
-         waitms(2000)        
-         keypress(13) // Enter mở chat
-         waitms(300)
-         
-keystring("aim60_5")
-
-         waitms(300)
-         keypress(13) // Enter gửi
-         waitms(800)
  logwrite("tao phong")	        
 LCLICK(337,265)  // 528414
 waitms(1000)
@@ -63,12 +92,29 @@ end_if
 
 
 
-if(pxl(450,296) = 502004)
-logwrite("batdau")
-LCLICK(455,253)  // 5610689
-waitms(1000)
-$turn = 0
-end_if
+IF(PXL(450,296) = 502004)
+   // Chỉ thực hiện gõ phím đúng 1 lần đầu
+   IF($da_go = 0)
+      LOGWRITE("Dang go aim...")
+      WAITMS(2000)        
+      KEYPRESS(13) // Enter mở chat
+      WAITMS(300)
+      
+      KEYSTRING("aim60_5")
+      
+      WAITMS(300)
+      KEYPRESS(13) // Enter gửi
+      WAITMS(800)
+      
+      $da_go = 1 // Đánh dấu đã gõ xong để các lần phát hiện sau không gõ lại
+   END_IF
+
+   // Các lệnh thực thi
+   LOGWRITE("batdau")
+   LCLICK(455,253)  // 5610689
+   WAITMS(1000)
+   $turn = 0
+END_IF
 
 
 if_pixel_in(234,37,234,37,255) 
