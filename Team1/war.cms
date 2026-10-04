@@ -78,6 +78,7 @@ end_if
       logwrite("vao phong game")
 LCLICK(241,142)  // 5538238
       waitms(1000)
+	  $da_go = 0
    end_if    
 
 
