@@ -1,10 +1,10 @@
-﻿#name("war0") 
+﻿#name("warclone2") 
 #autorun    
 Getscreen
-$tk = TFREAD("taikhoan\\taikhoan.txt",1)
+$tk = TFREAD("taikhoan\\taikhoan.txt",2)
 $wnd1 = wndfind($tk)
-$x = TFREAD("taikhoan\\toado.txt",1)
-$y = TFREAD("taikhoan\\toado.txt",2)
+$x = 486
+$y = 0
 $d=500
 $r=350
 WNDSETINFO($wnd1,$x,$y,$d,$r) 
@@ -75,29 +75,28 @@ end_if
   
 
    Getscreen
-   if_pixel_in(28,241,28,241,11991550)
-      logwrite("vao phong game")
-LCLICK(241,142)  // 5538238
-      waitms(1000)
-	  $da_go = 0
-   end_if    
+ if(pxl(256,176) = 1056995)
+logwrite("dong y moi")
+LCLICK(199,200)  // 7054028
+waitms(1000)
+$da_go = 0
+end_if    
 
 
 
-
-if(pxl(356,272) = 9169151)
- logwrite("tao phong")	        
-LCLICK(337,265)  // 528414
+IF(PXL(450,296) = 502004) 
+ logwrite("thoat phong")	        
+LCLICK(469,296)  // 2128820
 waitms(1000)
 end_if  
 
 
 
 
-GETSCREEN
-IF(PXL(450,296) = 502004)   // Trong phòng game
 
-   // 1. Chỉ gõ aim 1 lần đầu
+
+if(pxl(447,295) = 5165243)
+   // Chỉ thực hiện gõ phím đúng 1 lần đầu
    IF($da_go = 0)
       LOGWRITE("Dang go aim...")
       WAITMS(2000)        
@@ -110,58 +109,13 @@ IF(PXL(450,296) = 502004)   // Trong phòng game
       KEYPRESS(13) // Enter gửi
       WAITMS(800)
       
-      $da_go = 1
+      $da_go = 1 // Đánh dấu đã gõ xong để các lần phát hiện sau không gõ lại
    END_IF
 
-   // 2. Xử lý phòng game
-   IF($clone = 1)
-      GETSCREEN
-      
-      // BƯỚC 2A: Nếu ô còn TRỐNG -> Tiến hành mời clone
-      IF(PXL(159,98) = 11153494) 
-         IF($Guild = 2)                                
-            $m = 223
-         ELSE
-            $m = 254
-         END_IF
-         
-         WAITMS(1000)
-         LCLICK(149,69)  // khóa ô
-         WAITMS(1000)
-         LCLICK(149,69)  // mở ô
-
-         WAITMS(1000)
-         LCLICK(382,256)  // mời bạn
-         WAITMS(1000)
-
-         LCLICK($m,90) // bạn bè
-         WAITMS(1000)
-
-         LCLICK(277,106)  // click mời clone
-         WAITMS(1000)
-         LCLICK(299,72)
-         WAITMS(1000)
-         KEYPRESS(#ESC)
-         WAITMS(1000)
-      END_IF
-
-      // BƯỚC 2B: Kiểm tra nếu clone ĐÃ VÀO PHÒNG (màu khác màu ô trống) -> Bấm bắt đầu
-      GETSCREEN
-      IF(PXL(159,98) != 11153494) 
-         LOGWRITE("batdau vs clone2")
-         LCLICK(455,253)  // Bắt đầu
-         WAITMS(1000)
-         $turn = 0
-      END_IF
-
-   ELSE
-      // Trường hợp đánh 1 mình ($clone = 0)
-      LOGWRITE("batdau 1 minh")
-      LCLICK(455,253)  // Bắt đầu
-      WAITMS(1000)
-      $turn = 0
-   END_IF
-
+ logwrite("chuanbi")	        
+LCLICK(459,251)  // 6002876
+waitms(1000)
+   $turn = 0
 END_IF
 
 

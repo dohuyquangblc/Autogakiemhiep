@@ -1,10 +1,10 @@
-﻿#name("war0") 
+﻿#name("warclone3") 
 #autorun    
 Getscreen
-$tk = TFREAD("taikhoan\\taikhoan.txt",1)
+$tk = TFREAD("taikhoan\\taikhoan.txt",3)
 $wnd1 = wndfind($tk)
-$x = TFREAD("taikhoan\\toado.txt",1)
-$y = TFREAD("taikhoan\\toado.txt",2)
+$x = 0
+$y =345
 $d=500
 $r=350
 WNDSETINFO($wnd1,$x,$y,$d,$r) 
@@ -92,26 +92,24 @@ waitms(1000)
 end_if  
 
 
-
-
 GETSCREEN
 IF(PXL(450,296) = 502004)   // Trong phòng game
 
-   // 1. Chỉ gõ aim 1 lần đầu
-   IF($da_go = 0)
-      LOGWRITE("Dang go aim...")
-      WAITMS(2000)        
-      KEYPRESS(13) // Enter mở chat
-      WAITMS(300)
-      
-      KEYSTRING("aim55_5")
-      
-      WAITMS(300)
-      KEYPRESS(13) // Enter gửi
-      WAITMS(800)
-      
-      $da_go = 1
-   END_IF
+//   // 1. Chỉ gõ aim 1 lần đầu
+//   IF($da_go = 0)
+//      LOGWRITE("Dang go aim...")
+//      WAITMS(2000)        
+//      KEYPRESS(13) // Enter mở chat
+//      WAITMS(300)
+//      
+//      KEYSTRING("aim55_5")
+//      
+//      WAITMS(300)
+//      KEYPRESS(13) // Enter gửi
+//      WAITMS(800)
+//      
+//      $da_go = 1
+//   END_IF
 
    // 2. Xử lý phòng game
    IF($clone = 1)
@@ -165,25 +163,14 @@ IF(PXL(450,296) = 502004)   // Trong phòng game
 END_IF
 
 
-if_pixel_in(234,37,234,37,255) 
-logwrite("bat auto")
-LCLICK(243,8)  // 13941150 // bat auto dame
-waitms(500)
-end_if 
-
-if(pxl(478,180) = 2820549)
-logwrite("mo buff")
-LCLICK(470,148)  /
-waitms(500)
-end_if 
 
 GETSCREEN
 
 if_pixel_in(189,135,189,135,15793662)
       LOGWRITE("nhan turn")
       WAITMS(500)
-      #include "ht\buff.txt"
-      WAITMS(2000)
+keypress(#P)
+      WAITMS(1000)
 END_IF   
 
 
