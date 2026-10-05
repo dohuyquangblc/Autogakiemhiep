@@ -186,15 +186,17 @@ $Lmh = 0
 
 
    //loi lat the
-if(pxl(45,35) = 25067)
+IF((PXL(12,34) = 11971037) | (PXL(12,34) = 7169412))
+
 $loilatthe =  $loilatthe + 1
+print("loi login"$loilatthe)
  //print("loi lat the pb " $loilatthe)
 waitms(1000)   
 if($loilatthe >= 20)
    POSTMESSAGE($wnd1,0x0010,0,0)
    wait(3)
     $loilatthe = 0
-print("loi lat the pb")
+print("loi login")
 end_if
 end_if
 
