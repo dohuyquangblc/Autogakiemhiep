@@ -65,38 +65,39 @@ end_if
 
 
 
-//-----------------------LẬT THẺ ACC PHỤ (CHẠY TRỰC TIẾP)-----------------
-$bat_dau = 1    // Lá bài bắt đầu
-$so_the = 21    // Tổng số thẻ muốn lật
+////-----------------------LẬT THẺ ACC PHỤ (CHẠY TRỰC TIẾP)-----------------
+//$bat_dau = 1    // Lá bài bắt đầu
+//$so_the = 21    // Tổng số thẻ muốn lật
 
-GETSCREEN
-IF_PIXEL_IN(130,37,130,37,5557239)
-   PRINT("lat the acc phu") 
-   $mknlt = $mknlt + 1
-   WAITMS(8000)  
-   
-   $k = $bat_dau - 1
-   $limit = $k + $so_the
-   
-   WHILE($k < $limit)
-      $so_hang = 3   // Mặc định 3 hàng
-      $tong_cot = 7  // Mặc định 7 cột
-      
-      // Tính thứ tự lật DỌC (TỪ PHẢI QUA TRÁI)
-      $hang = $k - (INT($k / $so_hang) * $so_hang) 
-      $cot = ($tong_cot - 1) - INT($k / $so_hang)
-      
-      // Tính tọa độ X, Y acc phụ
-      $posX = INT(($cot * 18) + 13)
-      $posY = INT(($hang * 20) + 13)        
-      
-      LCLICK($posX, $posY)
-      WAITMS(300)
-      $k = $k + 1
-   END_CYC  
+//GETSCREEN
+//IF_PIXEL_IN(130,37,130,37,5557239)
+//   PRINT("lat the acc phu") 
 
-   $Lmh = 0
-END_IF
+//   WAITMS(8000)  
+//   
+//   $mknlt = $mknlt + 1   
+//   $k = $bat_dau - 1
+//   $limit = $k + $so_the
+//   
+//   WHILE($k < $limit)
+//      $so_hang = 3   // Mặc định 3 hàng
+//      $tong_cot = 7  // Mặc định 7 cột
+//      
+//      // Tính thứ tự lật DỌC (TỪ PHẢI QUA TRÁI)
+//      $hang = $k - (INT($k / $so_hang) * $so_hang) 
+//      $cot = ($tong_cot - 1) - INT($k / $so_hang)
+//      
+//      // Tính tọa độ X, Y acc phụ
+//      $posX = INT(($cot * 18) + 13)
+//      $posY = INT(($hang * 20) + 13)        
+//      
+//      LCLICK($posX, $posY)
+//      WAITMS(300)
+//      $k = $k + 1
+//   END_CYC  
+
+//   $Lmh = 0
+//END_IF
 
 
 
