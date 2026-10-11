@@ -1,6 +1,6 @@
 ﻿#name("tc2d") 
 #autorun    
-#includer("goc.xml") 
+#includer("sub.xml") 
 
 team(1,1,2)
 
