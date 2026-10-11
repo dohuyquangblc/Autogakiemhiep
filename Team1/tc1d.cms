@@ -1,0 +1,92 @@
+﻿#name("tc1d") 
+#autorun    
+#includer("sub.xml") 
+
+team(1,1,2)
+
+
+moiban()
+
+batdau("")
+
+chonpb(3,1,1,1)
+
+
+latthe(1,21)
+
+
+//dame()
+
+
+
+
+
+   Getscreen  
+  if  ($vitri=0)   
+if_pixel_in(239,114,239,114,16121087)
+   //neu thay diem nay thi dung lai
+   
+   
+if_pixel_in(234,37,234,37,65280)  // tat auto aim 
+logwrite("tat auto")
+LCLICK(243,8)  // 13941150 // bat auto dame
+waitms(500)
+end_if 
+   
+   
+
+if_pixel_in(8,275,8,275,16733440)
+            logwrite("stop"$vitri)
+        
+            waitms(200)						            
+            keyup(75)          
+            waitms(1000)
+            keypress(#right)
+            waitms(500)
+            keypress(#right)
+            waitms(500)
+            $vitri = 1
+           
+            
+             
+         else
+            
+            keydown(75)// bo trai
+            
+            
+end_if
+end_if
+end_if
+
+
+   Getscreen  
+  if  ($vitri=1)   
+if_pixel_in(239,114,239,114,16121087)  // nhan turn cho pass
+
+//if_pixel_in(234,37,234,37,255) 
+//logwrite("bat auto")
+//LCLICK(243,8)  // 13941150 // bat auto dame
+//waitms(500)
+//end_if 
+
+logwrite("buffdame")
+waitms(500)
+#includer("ht\\buff.txt")	  
+waitms(1000)
+keydown(68)
+waitms(2800)  // chinh luc
+keyup(68)
+
+end_if
+end_if
+
+
+
+
+
+
+
+
+
+
+
