@@ -1,6 +1,6 @@
 ﻿#name("boss rong tg") 
 #autorun    
-#includer("goc.xml") 
+#includer("sub.xml") 
 
 team(1,1,2)
 
