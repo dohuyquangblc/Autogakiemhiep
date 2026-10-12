@@ -1,6 +1,6 @@
 ﻿#name("boss rong tg") 
 #autorun    
-#includer("sub.xml") 
+#includer("goc.xml") 
 
 team(1,1,2)
 
@@ -35,23 +35,20 @@ end_if
 
 
 
-if(pxl(49,65) = 13433343)
+if_pixel_in(487,54,487,54,10965)
 logwrite("click vo boss")
-waitms(500)
+waitms(1000)
 LCLICK(395,26)  // 15984863
 waitms(5000)
 LCLICK(404,22)  // 6706771
 waitms(2000)
 $Lmh = 0
+$turn = 0
 end_if
 
 
 
-if_pixel_in(234,37,234,37,255) 
-logwrite("bat auto")
-LCLICK(243,8)  // 13941150 // bat auto dame
-waitms(500)
-end_if 
+
 
 if_pixel_in(478,261,478,261,1981681)
 logwrite("gom buff")
@@ -59,12 +56,48 @@ LCLICK(471,230) // thu buff
 waitms(500)
 end_if 
 
+
+
+
 Getscreen 
 if_pixel_in(189,135,189,135,15793662)// turn cho den luot
-logwrite("buffdame")
+   IF($turn >= 9)
+      LOGWRITE("tu sat")
+      
+if_pixel_in(234,37,234,37,65280)  // tat auto aim 
+logwrite("tat auto")
+LCLICK(243,8)  // 13941150 // bat auto dame
 waitms(500)
-#includer("ht\\buff.txt")
-	  
-waitms(2000)
+end_if    
 
-end_if 
+keydown(186)
+waitms(500)
+keydown(186)
+waitms(500)
+keydown(186)
+waitms(200)
+keydown(186)
+waitms(500)  
+      
+ 
+   ELSE
+
+if_pixel_in(234,37,234,37,255) 
+logwrite("bat auto")
+LCLICK(243,8)  // 13941150 // bat auto dame
+waitms(500)
+end_if    
+   
+      LOGWRITE("nhan turn"$turn)
+      WAITMS(500)
+      #include "ht\buff.txt"
+      WAITMS(8000)
+      
+      $turn = $turn + 1 // Tăng lượt nếu chưa đủ 3 turn
+   END_IF
+   WAITMS(1000) // Khoảng chờ tránh bị bấm đè liên tục
+END_IF   
+
+
+
+
