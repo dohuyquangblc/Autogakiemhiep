@@ -17,12 +17,11 @@ waitms(30)
 LCLICK(1,1)
 
 getscreen
-if(pxl(106,55) = 14211067)
+if_pixel_in(106,55,106,55,14211067,10861034)
  print( "tat tb thu phi ")
 LCLICK(66,36)  // 9799238
 waitms(1000)
 end_if
-
 
 
 getscreen
