@@ -16,13 +16,19 @@ hset($wnd1,1)
 waitms(30)
 LCLICK(1,1)
 
+getscreen
+if(pxl(106,55) = 14211067)
+ print( "tat tb thu phi ")
+LCLICK(66,36)  // 9799238
+waitms(1000)
+end_if
+
+
 
 getscreen
-
 if_pixel_in(132,83,132,83,9012)
  print( "thoat phong ")
 LCLICK(130,57)  // 1584451
-
     waitms(1000)
 end_if
 
