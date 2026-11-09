@@ -1,4 +1,4 @@
-#name("sc1d") 
+#name("sc1d") map dia nguc tran gian cc7 
 #autorun    
 #includer("sub.xml") 
 
@@ -9,10 +9,10 @@ moiban()
 
 batdau("")
 
-chonpb(1,1,1,1)
+chonpb(3,77,1,1)
 
 
-latthe(1,21)
+latthe(1,70)
 
 
 dame()
