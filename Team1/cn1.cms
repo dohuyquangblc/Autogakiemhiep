@@ -4,6 +4,11 @@
 
 team(1,1,2)
 
+if(pxl(330,161) = 16646143)
+logwrite("dong y ve")
+LCLICK(198,172)  // 6657472
+waitms(500)
+end_if 
 
 
    Getscreen   
