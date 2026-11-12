@@ -48,10 +48,11 @@ LCLICK(395,26)  // 15984863
 waitms(5000)
 LCLICK(404,22)  // 6706771
 waitms(2000)
+LCLICK(294,62)  // 1969717
+waitms(1000)
 $Lmh = 0
 $turn = 0
 end_if
-
 
 
 
