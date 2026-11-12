@@ -5,7 +5,7 @@
 team(1,1,2)
 
  Getscreen   
-if(pxl(330,161) = 16646143)
+ if(pxl(327,160) = 15266276)
 logwrite("dong y ve")
 LCLICK(198,172)  // 6657472
 waitms(500)
